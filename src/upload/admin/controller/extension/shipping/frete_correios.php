@@ -3,7 +3,7 @@
 class ControllerExtensionShippingFreteCorreios extends Controller {
   const DEFAULT_SHIPPING_SETTINGS = [
 		'frete_correios_days_to_prepare' => 3, /* Default days to prepare the product */
-    'frete_correios_destination_cep' => '14781123', /* Deafault destination CEP */
+    'frete_correios_origin_cep' => '00000000', /* Deafault origin CEP */
     'frete_correios_order' => 1, /* Default order */
 		'frete_correios_status' => 1 /* Enabled by default */
 	];

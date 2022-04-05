@@ -39,11 +39,11 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-destination_cep">{{ entry_destination_cep }}</label>
+            <label class="col-sm-2 control-label" for="input-origin_cep">{{ entry_origin_cep }}</label>
             <div class="col-sm-10">
-              <input type="text" name="frete_correios_destination_cep" value="{{ frete_correios_destination_cep }}" placeholder="{{ placeholder_destination_cep }}" id="input-destination_cep" class="form-control" />
-              {% if error.destination_cep %}
-              <div class="text-danger">{{ error_destination_cep }}</div>
+              <input type="text" name="frete_correios_origin_cep" value="{{ frete_correios_origin_cep }}" placeholder="{{ placeholder_origin_cep }}" id="input-origin_cep" class="form-control" />
+              {% if error.origin_cep %}
+              <div class="text-danger">{{ error_origin_cep }}</div>
               {% endif %}
             </div>
           </div>
