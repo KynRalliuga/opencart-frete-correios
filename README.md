@@ -1,6 +1,6 @@
 # Plugin OpenCart Frete Correios
 
-Este simples plugin para o OpenCart faz o cálculo dos dias que o produto do cliente irá demorar para chegar em sua residência adicionando os dias de preparo do produto com os dias de envio pelos correios. Além de retornar também o valor cobrado para essa entrega pelos correios.
+Este plugin calcula o tempo e o preço do frete por sedex. Você pode adicionar também o tempo de preparo em dias padrão ou para cada produto sendo que ao final se o cliente adicionar mais de 1 produto no carrinho o frete será calculado como o tempo do produto mais demorado + o tempo do frete em dias.
 
 # Versões testadas
 
