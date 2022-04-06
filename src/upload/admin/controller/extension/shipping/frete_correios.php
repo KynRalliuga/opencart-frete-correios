@@ -101,7 +101,7 @@ class ControllerExtensionShippingFreteCorreios extends Controller {
 		} elseif (!empty($product_info) && isset($product_info['frete_correios_days_to_prepare'])) {
 			$data['frete_correios_days_to_prepare'] = $product_info['frete_correios_days_to_prepare'];
 		} else {
-			$data['frete_correios_days_to_prepare'] = self::DEFAULT_SHIPPING_SETTINGS['frete_correios_days_to_prepare'];
+			$data['frete_correios_days_to_prepare'] = '';
 		}
 
 		$route = str_replace('catalog/product_form', 'extension/shipping/product_form', $route);
