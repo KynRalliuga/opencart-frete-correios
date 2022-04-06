@@ -32,7 +32,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-days_to_prepare">{{ entry_days_to_prepare }}</label>
             <div class="col-sm-10">
-              <input type="text" name="frete_correios_days_to_prepare" value="{{ frete_correios_days_to_prepare }}" placeholder="{{ placeholder_days_to_prepare }}" id="input-days_to_prepare" class="form-control" />
+              <input type="text" name="shipping_frete_correios_days_to_prepare" value="{{ shipping_frete_correios_days_to_prepare }}" placeholder="{{ placeholder_days_to_prepare }}" id="input-days_to_prepare" class="form-control" />
               {% if error.days_to_prepare %}
               <div class="text-danger">{{ error_days_to_prepare }}</div>
               {% endif %}
@@ -41,7 +41,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-origin_cep">{{ entry_origin_cep }}</label>
             <div class="col-sm-10">
-              <input type="text" name="frete_correios_origin_cep" value="{{ frete_correios_origin_cep }}" placeholder="{{ placeholder_origin_cep }}" id="input-origin_cep" class="form-control" />
+              <input type="text" name="shipping_frete_correios_origin_cep" value="{{ shipping_frete_correios_origin_cep }}" placeholder="{{ placeholder_origin_cep }}" id="input-origin_cep" class="form-control" />
               {% if error.origin_cep %}
               <div class="text-danger">{{ error_origin_cep }}</div>
               {% endif %}
@@ -50,9 +50,9 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
             <div class="col-sm-10">
-              <select name="frete_correios_status" id="input-status" class="form-control">
-                <option value="1" {{ frete_correios_status ? 'selected="selected"' : '' }}>{{ text_enabled }}</option>
-                <option value="0" {{ not frete_correios_status ? 'selected="selected"' : '' }}>{{ text_disabled }}</option>
+              <select name="shipping_frete_correios_status" id="input-status" class="form-control">
+                <option value="1" {{ shipping_frete_correios_status ? 'selected="selected"' : '' }}>{{ text_enabled }}</option>
+                <option value="0" {{ not shipping_frete_correios_status ? 'selected="selected"' : '' }}>{{ text_disabled }}</option>
               </select>
               {% if error.status %}
               <div class="text-danger">{{ error_status }}</div>
@@ -62,7 +62,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-order">{{ entry_order }}</label>
             <div class="col-sm-10">
-              <input type="text" name="frete_correios_order" value="{{ frete_correios_order }}" placeholder="{{ placeholder_order }}" id="input-order" class="form-control" />
+              <input type="text" name="shipping_frete_correios_sort_order" value="{{ shipping_frete_correios_sort_order }}" placeholder="{{ placeholder_order }}" id="input-order" class="form-control" />
               {% if error.order %}
               <div class="text-danger">{{ error_order }}</div>
               {% endif %}

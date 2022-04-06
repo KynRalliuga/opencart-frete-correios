@@ -4,9 +4,9 @@ class ModelExtensionShippingFreteCorreios extends Model {
 	function getQuote($address) {
 		$this->load->language('extension/shipping/frete_correios');
 
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "zone_to_geo_zone WHERE geo_zone_id = '" . (int)$this->config->get('frete_correios_geo_zone_id') . "' AND country_id = '" . (int)$address['country_id'] . "' AND (zone_id = '" . (int)$address['zone_id'] . "' OR zone_id = '0')");
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "zone_to_geo_zone WHERE geo_zone_id = '" . (int)$this->config->get('shipping_frete_correios_geo_zone_id') . "' AND country_id = '" . (int)$address['country_id'] . "' AND (zone_id = '" . (int)$address['zone_id'] . "' OR zone_id = '0')");
 
-		if (!$this->config->get('frete_correios_geo_zone_id')) {
+		if (!$this->config->get('shipping_frete_correios_geo_zone_id')) {
 			$status = true;
 		} elseif ($query->num_rows) {
 			$status = true;
@@ -49,10 +49,10 @@ class ModelExtensionShippingFreteCorreios extends Model {
 			$length = $length >= 15 ? $length : 15;
 			$width = $width >= 10 ? $width : 10;
 			$height = $height >= 1 ? $height : 1;
-			$daysToPrepare = $daysToPrepare == 0 ? intval($this->config->get('frete_correios_days_to_prepare')) : $daysToPrepare;
+			$daysToPrepare = empty($daysToPrepare) ? intval($this->config->get('shipping_frete_correios_days_to_prepare')) : $daysToPrepare;
 
 			$precoPrazoCorreios = self::getPrecoPrazoCorreios(
-					$this->config->get('frete_correios_origin_cep'),
+					$this->config->get('shipping_frete_correios_origin_cep'),
 					$address['postcode'],
 					$weight,
 					$length,
@@ -65,7 +65,7 @@ class ModelExtensionShippingFreteCorreios extends Model {
 				'code'       => 'frete_correios',
 				'title'      => $this->language->get('text_title'),
 				'quote'      => array(),
-				'sort_order' => $this->config->get('frete_correios_sort_order'),
+				'sort_order' => $this->config->get('shipping_frete_correios_sort_order'),
 				'error'      => false
 			);
 	
