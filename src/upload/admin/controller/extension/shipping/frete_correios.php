@@ -19,7 +19,7 @@ class ControllerExtensionShippingFreteCorreios extends Controller {
 		
 		/* Edit request */
 		if ($this->request->server['REQUEST_METHOD'] == 'POST' && $this->validate()) {
-			$this->model_setting_setting->editSetting('frete_correios', $this->request->post);
+			$this->model_setting_setting->editSetting('shipping_frete_correios', $this->request->post);
 			
 			$this->session->data['success'] = $this->language->get('text_success');
 						
@@ -84,14 +84,63 @@ class ControllerExtensionShippingFreteCorreios extends Controller {
 		
 		return empty($this->error);
 	}
+
+	/* Event function */
+	public function getFormProduct(&$route, &$data) {
+		$this->load->language('extension/shipping/frete_correios');
+
+		$data['entry_days_to_prepare'] = $this->language->get('entry_days_to_prepare');
+		$data['placeholder_days_to_prepare'] = $this->language->get('placeholder_days_to_prepare');
+
+		if (isset($this->request->get['product_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
+			$product_info = $this->model_catalog_product->getProduct($this->request->get['product_id']);
+		}
+
+		if (isset($this->request->post['frete_correios_days_to_prepare'])) {
+			$data['frete_correios_days_to_prepare'] = $this->request->post['frete_correios_days_to_prepare'];
+		} elseif (!empty($product_info) && isset($product_info['frete_correios_days_to_prepare'])) {
+			$data['frete_correios_days_to_prepare'] = $product_info['frete_correios_days_to_prepare'];
+		} else {
+			$data['frete_correios_days_to_prepare'] = self::DEFAULT_SHIPPING_SETTINGS['frete_correios_days_to_prepare'];
+		}
+
+		$route = str_replace('catalog/product_form', 'extension/shipping/product_form', $route);
+	}
+
+  /* Event Function */
+  public function editProductModel(&$route, &$data){
+		$this->load->model('extension/dashboard/products');
+    $route = str_replace('catalog/product/editProduct', 'extension/dashboard/products/editProduct', $route);
+  }
+
+  /* Event Function */
+  public function addProductModel(&$route, &$data){
+		$this->load->model('extension/dashboard/products');
+    $route = str_replace('catalog/product/addProduct', 'extension/dashboard/products/addProduct', $route);
+  }
 	
 	public function install() {
 		$this->load->model('setting/setting');
 		$this->model_setting_setting->editSetting('shipping_frete_correios', ['shipping_frete_correios_status' => 1]);
+
+		/* Models */
+		$this->load->model('extension/dashboard/products');
+		$this->model_extension_dashboard_products->alterProductsTable();
+
+		/* Events */
+		$this->load->model('setting/event');
+		$this->model_setting_event->addEvent('change_product_form', 'admin/view/catalog/product_form/before', 'extension/shipping/frete_correios/getFormProduct');
+		$this->model_setting_event->addEvent('change_edit_product_model', 'admin/model/catalog/product/editProduct/before', 'extension/shipping/frete_correios/editProductModel');
+		$this->model_setting_event->addEvent('change_add_product_model', 'admin/model/catalog/product/addProduct/before', 'extension/shipping/frete_correios/addProductModel');
 	}
 	
 	public function uninstall() {
 		$this->load->model('setting/setting');
 		$this->model_setting_setting->deleteSetting('shipping_frete_correios');
+
+		/* Events */
+		$this->load->model('setting/event');
+		$this->model_setting_event->deleteEventByCode('change_product_form');
+		$this->model_setting_event->deleteEventByCode('change_product_model');
 	}
 }
