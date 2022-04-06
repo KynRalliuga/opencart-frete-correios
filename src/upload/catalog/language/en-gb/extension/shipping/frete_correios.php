@@ -13,3 +13,4 @@ $_['error_altura_max'] = 'Products height can\' be more than 100cm';
 $_['error_largura_max'] = 'Products width can\' be more than 100cm';
 $_['error_comprimento_max'] = 'Products length can\' be more than 100cm';
 $_['error_soma_dimensoes'] = 'The sum of the products dimensions can\' be more than 200cm';
+$_['error_server_indisponivel'] = 'Unable to calculate shipping, post office system is unavailable';

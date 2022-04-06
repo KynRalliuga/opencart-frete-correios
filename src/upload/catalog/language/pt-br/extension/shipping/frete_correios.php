@@ -13,3 +13,4 @@ $_['error_altura_max'] = 'Altura dos produtos não pode exceder 100cm';
 $_['error_largura_max'] = 'Largura dos produtos não pode exceder 100cm';
 $_['error_comprimento_max'] = 'Comprimento dos produtos não pode exceder 100cm';
 $_['error_soma_dimensoes'] = 'Soma das dimensões dos produtos não pode exceder 200cm';
+$_['error_server_indisponivel'] = 'Não foi possível calcular o frete, o sistema do correio está indisponível';
