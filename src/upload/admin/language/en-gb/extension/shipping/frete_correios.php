@@ -1,11 +1,11 @@
 <?php
 // Heading
-$_['heading_title'] 		= 'Post Office Shipping';
+$_['heading_title'] 		= 'Post Office Sedex Shipping';
 
 // Text
 $_['text_extension']		= 'Extensions';
-$_['text_success']		= 'Success: You have modified post office shipping!';
-$_['text_edit']			= 'Edit Post Office Shipping';
+$_['text_success']		= 'Success: You have modified post office sedex shipping!';
+$_['text_edit']			= 'Edit Post Office Sedex Shipping';
 
 // Entry
 $_['entry_days_to_prepare']	= 'Days to prepare the product';

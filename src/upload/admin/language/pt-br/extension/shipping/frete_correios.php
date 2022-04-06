@@ -1,11 +1,11 @@
 <?php
 // Heading
-$_['heading_title'] 		= 'Frete Correios';
+$_['heading_title'] 		= 'Frete Correios Sedex';
 
 // Text
 $_['text_extension']		= 'Extensões';
-$_['text_success']		= 'Frete Correios modificado com sucesso!';
-$_['text_edit']			= 'Editar Frete Correios';
+$_['text_success']		= 'Frete Correios Sedex modificado com sucesso!';
+$_['text_edit']			= 'Editar Frete Correios Sedex';
 
 // Entry
 $_['entry_days_to_prepare']	= 'Dias para preparar o produto';
